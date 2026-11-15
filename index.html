@@ -844,6 +844,13 @@ function initHost(){
       mode="spin";setLightSpeed(70);
       const pool=players.map(t=>({t}));
       const fill=()=>Math.random()<.28?{t:rnd(SYMS),sym:1}:{...rnd(pool)};
+      // Colonnes aléatoires : chaque équipe garde sa ligne, mais l'ordre des prénoms est mélangé
+      const sh=a=>{a=a.slice();for(let k=a.length-1;k>0;k--){const j=Math.floor(Math.random()*(k+1));[a[k],a[j]]=[a[j],a[k]]}return a};
+      const sp=split(players), N=cols.length;
+      const rowA=sh(sp.t1), rowB=sh([...sp.t2,...Array(Math.max(0,N-sp.t2.length)).fill(null)]);
+      cols.forEach((c,i)=>{
+        c.fin=[{t:rowA[i]},rowB[i]?{t:rowB[i]}:{t:"🎁",sym:1}];
+      });
       let finished=0;
       cols.forEach((c,i)=>{
         const L=26+i*11,dur=2.4+i*.9;
