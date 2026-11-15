@@ -125,6 +125,77 @@ body.finale #end{pointer-events:auto}
 #launch .qrcard{font-size:20px;padding:16px}
 #launchBack{position:absolute;top:12px;left:12px;opacity:.3}
 #launchBack:hover{opacity:.9}
+/* ===== Page des prénoms ===== */
+#names{display:none;flex:1;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:20px;overflow:auto;position:relative}
+#names h1{font-size:clamp(30px,4.5vw,56px);color:var(--gold);text-shadow:0 0 40px #ffd16688;margin:0;text-align:center}
+#names .panel{width:min(560px,100%)}
+#namesList{display:flex;flex-direction:column;gap:8px;max-height:42vh;overflow:auto;padding:2px;margin:12px 0}
+.nrow{display:flex;gap:6px;align-items:center}
+.nrow span{width:26px;text-align:right;opacity:.6}
+.nrow button{width:40px;padding:6px 0;box-shadow:none}
+#namesInfo{opacity:.9;text-align:center;min-height:26px;margin-top:10px;font-size:18px}
+#namesBack{position:absolute;top:12px;left:12px;opacity:.4}
+#namesBack:hover{opacity:.95}
+/* ===== Pages : casino & QR codes des équipes ===== */
+#casinoPage,#qrPage{display:none;flex:1;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:14px 20px;overflow:auto;text-align:center}
+body.elfOn #casinoPage,body.elfOn #qrPage{padding-bottom:210px}
+#qrPage h1{font-size:clamp(30px,4.5vw,60px);color:var(--gold);text-shadow:0 0 40px #ffd16688;margin:0}
+#qrPage h2{font-weight:600;opacity:.9;margin:0}
+#qrPage .qrbox{gap:34px}
+.qrcol{display:flex;flex-direction:column;align-items:center}
+.qrcol .qrcard{font-size:20px;padding:16px}
+.members{margin-top:10px;padding:10px 16px;border-radius:14px;font-weight:800;font-size:20px;max-width:300px;word-break:break-word}
+.members.A{background:#e6394655}.members.B{background:#2a9d8f55}
+#csResult{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.csCard{padding:12px 22px;border-radius:16px;min-width:230px;font-size:20px;font-weight:800;animation:slide .7s both}
+.csCard b{display:block;font-size:17px;margin-bottom:4px}
+.csCard.A{background:#e6394677;border:3px solid #ff7a86}.csCard.B{background:#2a9d8f77;border:3px solid #5ee0cf}
+#casinoHint{font-size:clamp(22px,3vw,38px);font-weight:900;color:var(--gold);text-shadow:0 0 30px #ffd16699;min-height:1.3em}
+#csWrap{position:relative;padding-right:150px}
+#csMachine{position:relative;padding:50px 46px 44px;border-radius:38px;background:linear-gradient(170deg,#c8243a 0%,#7d0f1f 55%,#5a0a16 100%);border:7px solid var(--gold);box-shadow:0 0 0 3px #b98a1d,0 24px 60px #000b,inset 0 0 40px #0006}
+#casinoPage .csBulb{position:absolute;width:15px;height:15px;margin:-7px 0 0 -7px;border-radius:50%;background:#4b3a20;box-shadow:inset 0 -2px 3px #0008;transition:background .08s,box-shadow .08s}
+#casinoPage .csBulb.on{background:var(--c);box-shadow:0 0 8px 3px var(--c),0 0 22px 6px var(--c)}
+#casinoPage .csSign{text-align:center;margin:0 auto 14px;padding:8px 22px;width:max-content;max-width:100%;font-size:clamp(20px,2.6vw,32px);font-weight:900;color:#3b0610;border-radius:14px;background:linear-gradient(#ffe8a3,var(--gold) 50%,#e0a82e);border:3px solid #fff3c4;box-shadow:0 4px 0 #b98a1d,0 0 24px #ffd16688}
+#csWin{display:flex;gap:6px;padding:14px;border-radius:20px;background:#0a0e33;border:6px solid var(--gold);box-shadow:inset 0 0 30px #000,0 0 0 3px #b98a1d}
+#csLabels{width:118px;flex:none}
+#casinoPage .csLab{height:84px;display:flex;align-items:center;justify-content:center;text-align:center;padding:4px 8px;font-weight:900;font-size:15px;line-height:1.15;border-radius:10px 0 0 10px;color:#fff;word-break:break-word}
+#casinoPage .csLab.t1{background:var(--A);border-bottom:2px solid #0006}
+#casinoPage .csLab.t2{background:var(--B)}
+#csReels{position:relative;display:flex;gap:6px}
+#casinoPage .csReel{position:relative;height:168px;overflow:hidden;background:#fff6e0;border-radius:6px}
+#casinoPage .csReel::before{content:"";position:absolute;left:0;right:0;top:84px;height:2px;background:#0004;z-index:2}
+#casinoPage .csReel::after{content:"";position:absolute;inset:0;z-index:3;pointer-events:none;background:linear-gradient(rgba(0,0,0,.42),transparent 24%,transparent 76%,rgba(0,0,0,.42))}
+#casinoPage .csStrip{position:absolute;left:0;top:0;width:100%;will-change:transform}
+#casinoPage .csReel.spin .csStrip{filter:blur(2.5px)}
+#casinoPage .csIt{height:84px;display:flex;align-items:center;justify-content:center;padding:0 6px;color:#2a1218;font-weight:900;white-space:nowrap}
+#casinoPage .csIt.sym{font-size:38px}
+#casinoPage .csReel.landed{animation:csLanded .5s}
+@keyframes csLanded{0%{box-shadow:0 0 0 0 #ffd166}40%{box-shadow:0 0 0 5px #ffd166,0 0 30px 8px #ffd166aa}100%{box-shadow:0 0 0 0 #ffd16600}}
+#casinoPage .csGlow{position:absolute;left:0;right:0;height:84px;z-index:4;pointer-events:none;opacity:0;transition:opacity .5s;border-radius:4px}
+#casinoPage .csGlow.g1{top:0;background:#e6394655;box-shadow:inset 0 0 0 3px #ff7a86,0 0 26px #e63946}
+#casinoPage .csGlow.g2{top:84px;background:#2a9d8f55;box-shadow:inset 0 0 0 3px #5ee0cf,0 0 26px #2a9d8f}
+#csReels.done .csGlow{opacity:1;animation:csPulse 1.1s ease-in-out 3}
+@keyframes csPulse{50%{filter:brightness(1.5)}}
+#casinoPage .csTray{margin:16px auto 0;width:60%;height:14px;border-radius:8px;background:linear-gradient(#111,#333);box-shadow:inset 0 3px 6px #000,0 1px 0 #ffffff33}
+#csLever{position:absolute;right:-34px;top:54%;width:0;height:0;cursor:pointer;z-index:6}
+#csLever .mount{position:absolute;left:-24px;top:-24px;width:48px;height:48px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,#9a9a9a 60%,#555);border:4px solid #3a3a3a;z-index:2;box-shadow:0 4px 10px #0008}
+#csLever .arm{position:absolute;left:-7px;bottom:0;width:14px;height:118px;border-radius:7px;background:linear-gradient(90deg,#8c8c8c,#fff,#8c8c8c);transform-origin:50% 100%;transform:rotate(0);transition:transform .45s cubic-bezier(.55,0,.85,.55)}
+#csLever .ball{position:absolute;top:-26px;left:50%;margin-left:-26px;width:52px;height:52px;border-radius:50%;background:radial-gradient(circle at 32% 28%,#ffb3b3,#e63946 55%,#5c0610);box-shadow:0 4px 10px #0009,0 0 18px #e6394688}
+#csLever.pulled .arm{transform:rotate(180deg)}
+#csLever.release .arm{transition:transform .6s cubic-bezier(.3,1.5,.5,1)}
+#csLever:not(.busy) .ball{animation:csHint 1.6s ease-in-out infinite}
+@keyframes csHint{50%{transform:scale(1.12);box-shadow:0 4px 10px #0009,0 0 30px #ffd166}}
+#csLever:focus-visible{outline:none}
+#csLever:focus-visible .mount{outline:3px solid #fff}
+@media (max-width:760px){
+  #csWrap{padding-right:96px}
+  #csLever .arm{height:78px}
+  #csMachine{padding:44px 30px 36px}
+  #csLabels{width:78px}#casinoPage .csLab{font-size:12px}
+}
+@media (prefers-reduced-motion:reduce){
+  #casinoPage .csReel.landed,#csReels.done .csGlow,#csLever:not(.busy) .ball{animation:none}
+}
 /* ===== Téléphone ===== */
 body.phone{overflow:auto}
 #phone{display:none;min-height:100%;padding:20px;flex-direction:column;gap:16px;text-align:center}
@@ -229,8 +300,7 @@ body.phone{overflow:auto}
         <input type="text" id="baseUrl" placeholder="ex : https://monpseudo.github.io/noel2026/index.html">
         <small style="opacity:.75;display:block;margin-top:4px">⚠️ Si tu ouvres le fichier depuis ton PC (file://), les téléphones ne pourront pas le charger : héberge-le gratuitement (GitHub Pages, Netlify Drop…) et colle l'adresse ici.</small>
         <label class="l">Code de salle (change-le si tu relances)</label><input type="text" id="room">
-        <div class="qrbox" id="qrSetup" style="margin-top:14px"></div>
-        <div style="margin-top:10px;text-align:center"><span class="dot" id="dotA"></span>Équipe A &nbsp; <span class="dot" id="dotB"></span>Équipe B</div>
+        <small style="opacity:.8;display:block;margin-top:14px">🎰 Les joueurs seront répartis entre ces deux équipes par la machine à sous, pendant la partie. Les QR codes n'apparaîtront qu'une fois les équipes formées.</small>
       </div>
 
       <div class="panel">
@@ -248,9 +318,22 @@ body.phone{overflow:auto}
         <input type="range" id="vol" min="0" max="100" value="35" style="width:100%">
         <label class="l"><input type="checkbox" id="fx" checked> Effets sonores</label>
         <div style="margin-top:20px;text-align:center">
-          <button id="btnStart" style="font-size:24px;padding:16px 34px" disabled>🚀 Lancer l'aventure</button>
+          <button id="btnStart" style="font-size:24px;padding:16px 34px" disabled>➡️ Suite : les participants</button>
         </div>
       </div>
+    </div>
+  </div>
+
+  <!-- ===== PRÉNOMS ===== -->
+  <div id="names">
+    <button id="namesBack" class="sec small">← Paramètres</button>
+    <h1>👥 Qui joue ce soir ?</h1>
+    <div class="panel">
+      <div style="opacity:.9">Un prénom par champ. La machine à sous du Pôle Nord formera les deux équipes pendant la partie : le nombre de joueurs s'adapte tout seul.</div>
+      <div id="namesList"></div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="sec small" id="namesAdd">+ Ajouter un prénom</button><button class="sec small" id="namesClear">🗑️ Vider la liste</button></div>
+      <div id="namesInfo"></div>
+      <div style="text-align:center;margin-top:12px"><button id="namesOk" style="font-size:24px;padding:16px 34px" disabled>🚀 Lancer l'aventure</button></div>
     </div>
   </div>
 
@@ -259,11 +342,38 @@ body.phone{overflow:auto}
     <button id="launchBack" class="sec small">← Paramètres</button>
     <h1>🎄 Noël 2026 🎄</h1>
     <h2>Mission : guider l'apprenti Père Noël depuis la tour de contrôle de Fécamp 🛷</h2>
-    <div class="panel" style="padding:16px 22px">
-      <div style="font-size:22px;margin-bottom:10px">📱 Scannez le QR code de votre équipe avec votre smartphone</div>
-      <div class="qrbox" id="launchQR"></div>
-    </div>
+    <div class="panel" style="padding:16px 22px;font-size:22px" id="launchInfo"></div>
     <button id="btnGo" style="font-size:30px;padding:18px 44px">🎮 Commencer le jeu</button>
+  </div>
+
+  <!-- ===== CASINO DU PÔLE NORD ===== -->
+  <div id="casinoPage">
+    <div id="casinoHint"></div>
+    <div id="csWrap">
+      <div id="csMachine">
+        <div class="csSign">🎰 Casino du Pôle Nord 🎄</div>
+        <div id="csWin">
+          <div id="csLabels"><div class="csLab t1" id="csLab1"></div><div class="csLab t2" id="csLab2"></div></div>
+          <div id="csReels"><div class="csGlow g1"></div><div class="csGlow g2"></div></div>
+        </div>
+        <div class="csTray"></div>
+        <div id="csLever" role="button" tabindex="0" aria-label="Tirer la poignée">
+          <div class="mount"></div>
+          <div class="arm"><i class="ball"></i></div>
+        </div>
+      </div>
+    </div>
+    <div id="csResult"></div>
+    <button id="csGo" disabled>🎰 Tirer la poignée</button>
+    <button id="csNext" style="display:none;font-size:24px;padding:14px 34px">📱 Continuer : les QR codes</button>
+  </div>
+
+  <!-- ===== QR CODES DES ÉQUIPES ===== -->
+  <div id="qrPage">
+    <h1>📱 Les équipes sont formées !</h1>
+    <h2>Chaque joueur scanne le QR code de son équipe avec son smartphone</h2>
+    <div class="qrbox" id="qrTeams"></div>
+    <button id="btnMission" style="font-size:28px;padding:16px 40px">🛷 Commencer la mission</button>
   </div>
 
   <!-- ===== JEU ===== -->
@@ -310,14 +420,20 @@ const CONFIG = {
   lieu: "Fécamp",
   peerPrefix: "noel26fecamp-",
   conclusionSeuil: 0.5,          // part de villes trouvées pour sauver Noël
-  histoire: [
+  histoire1: [
     "Ho ho ho… Psst ! Par ici ! Je suis Pimprenelle, l'elfe du Pôle Nord ! 🧝‍♀️",
     "Il s'est passé un truc incroyable ce soir : le fils du Père Noël s'est enfui avant minuit !",
     "Il veut prouver à son père qu'il est capable de faire la distribution de cadeaux tout seul. Quel courage… et quelle tête en l'air !",
     "Mais voilà : il a laissé tomber sa carte d'orientation en plein vol. Résultat : il est complètement PERDU ! 🗺️❌",
-    "Heureusement, vous êtes ici, dans la tour de contrôle aérien de " + "Fécamp" + " ! 📡",
+    "Heureusement, vous êtes ici, dans la tour de contrôle aérien de Fécamp ! 📡"
+  ],
+  histoireCasino: [
+    "Sauf qu'une tour de contrôle, ça se pilote en équipe ! Heureusement, la machine à sous magique de l'atelier des lutins vous a déjà répartis en deux équipes de contrôleurs aériens. 🎰",
+    "Elle ne se trompe jamais : alors faites équipe, et que la chance de Noël vous guide ! 🍀"
+  ],
+  histoire2: [
     "Sa photo en direct arrive sur vos écrans : il vous montre où il se trouve. À vous de lui dire dans quelle VILLE il est !",
-    "Chaque équipe a son smartphone : scannez votre QR code, écrivez la ville, et validez !",
+    "Sur votre smartphone, écrivez la ville où se trouve le traîneau, puis validez ! Mettez-vous d'accord avec votre équipe avant !",
     "Attention… si l'apprenti Père Noël reste perdu, des enfants n'auront pas leur cadeau cette année. 😢",
     "Mais pour vous remercier de votre aide exceptionnelle, il a un cadeau surprise pour l'équipe gagnante ! 🎁",
     "Le traîneau est en vue… Tout le monde à son poste. Première photo dans 3, 2, 1… 🚀"
@@ -415,6 +531,7 @@ function initHost(){
     saved: 0, history: [],
     conns: {A:[],B:[]},
     names: {A:"Équipe A", B:"Équipe B"},
+    players: [], teams: {A:[],B:[]},
     muted: false
   };
 
@@ -515,7 +632,6 @@ function initHost(){
   function updateDots(){
     ["A","B"].forEach(t=>{
       const on=S.conns[t].some(c=>c.open);
-      $("#dot"+t).classList.toggle("on",on);
       const ld=$("#ldot"+t); if(ld) ld.classList.toggle("on",on);
       const ls=$("#lst"+t); if(ls) ls.textContent=on?"connecté ✅":"en attente…";
     });
@@ -526,7 +642,7 @@ function initHost(){
     teams.forEach(t=>{
       const open = S.phase==="question";
       const msg = {type:"state", round:Math.max(S.idx,0), open, phase:S.phase, teamName:S.names[t], score:S.scores[t],
-        msg: S.phase==="story"?"L'elfe raconte l'histoire… écoute bien ! 🧝‍♀️":(S.phase==="end"?"Fin du jeu ! Merci 🎄":undefined)};
+        msg: S.phase==="story"?"L'elfe raconte l'histoire… écoute bien ! 🧝‍♀️":(S.phase==="casino"?"La machine à sous forme les équipes… 🎰":S.phase==="qr"?"Connecté ✅ La mission va bientôt commencer !":S.phase==="end"?"Fin du jeu ! Merci 🎄":undefined)};
       S.conns[t].forEach(c=>{ if(c.open) c.send(msg); });
     });
   }
@@ -548,7 +664,6 @@ function initHost(){
   function drawSetupQR(){
     S.names.A=$("#nameA").value||"Équipe A"; S.names.B=$("#nameB").value||"Équipe B";
     store.set("noel26nameA",S.names.A); store.set("noel26nameB",S.names.B);
-    const box=$("#qrSetup"); box.innerHTML=""; makeQR(box,"A",150); makeQR(box,"B",150);
   }
   ["nameA","nameB","baseUrl","room"].forEach(id=>$("#"+id).addEventListener("input",()=>{ drawSetupQR(); if(id==="room") openPeer(); }));
   function updateMiniQR(){
@@ -630,35 +745,237 @@ function initHost(){
   $("#bubble").onclick=advance;
   function hideElf(){ $("#elfZone").style.display="none"; document.body.classList.remove("elfOn"); }
 
+  /* ---------- Page des prénoms ---------- */
+  const nList=$("#namesList");
+  function nNumber(){[...nList.children].forEach((r,i)=>{r.querySelector("span").textContent=i+1;r.querySelector("input").placeholder="Prénom "+(i+1)})}
+  function getPlayers(){return [...nList.querySelectorAll("input")].map(i=>i.value.trim()).filter(Boolean)}
+  function nChanged(){
+    nNumber(); const p=getPlayers(), n=p.length, a=Math.ceil(n/2), b=Math.floor(n/2);
+    $("#namesInfo").textContent = n<2 ? "Il faut au moins 2 joueurs." : n+" joueurs · "+(a===b?"2 équipes de "+a:"équipes de "+a+" et "+b);
+    $("#namesOk").disabled = n<2;
+    store.set("noel26players",JSON.stringify(p));
+  }
+  function nRow(v="",focus=false){
+    const r=document.createElement("div"); r.className="nrow";
+    r.innerHTML='<span></span><input type="text" maxlength="30" autocomplete="off"><button type="button" class="small sec" title="Retirer" aria-label="Retirer">✕</button>';
+    const inp=r.querySelector("input"); inp.value=v;
+    inp.addEventListener("input",nChanged);
+    inp.addEventListener("keydown",e=>{ if(e.key==="Enter"){ e.preventDefault(); const nx=r.nextElementSibling; if(nx) nx.querySelector("input").focus(); else nRow("",true); } });
+    r.querySelector("button").onclick=()=>{ if(nList.children.length>2) r.remove(); else inp.value=""; nChanged(); };
+    nList.appendChild(r); nNumber(); if(focus) inp.focus();
+  }
+  function setPlayers(arr){ nList.innerHTML=""; (arr||[]).forEach(v=>nRow(v)); while(nList.children.length<4) nRow(""); nChanged(); }
+  let savedPlayers=[]; try{ savedPlayers=JSON.parse(store.get("noel26players","[]")) }catch(e){}
+  setPlayers(savedPlayers);
+  $("#namesAdd").onclick=()=>nRow("",true);
+  $("#namesClear").onclick=()=>{ setPlayers([]); nList.querySelector("input").focus(); };
+
+  /* ---------- Casino du Pôle Nord : la machine à sous qui forme les équipes ---------- */
+  const CASINO=(function(){
+    const CH=84, SYMS=["🎄","⭐","🎁","🔔","🦌","❄️","🍬","🎅"];
+    const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+    const page=$("#casinoPage"), reelsBox=$("#csReels"), lever=$("#csLever"), goBtn=$("#csGo"), hint=$("#casinoHint"), machine=$("#csMachine");
+    let players=[], cols=[], spinning=false, isReady=false, done=false, onDone=null, fitFont=28;
+    let mode="idle", tk=0, flashUntil=0, timer=null, bulbs=[];
+    const idle=[{t:"❓",sym:1},{t:"❓",sym:1}];
+    // Rangs impairs (1er, 3e…) = équipe A ; rangs pairs (2e, 4e…) = équipe B
+    const split=n=>({t1:n.filter((_,i)=>i%2===0),t2:n.filter((_,i)=>i%2===1)});
+    const sfx={
+      tick(){tone(780+Math.random()*260,0,.03,"square",.025)},
+      clunk(){tone(110,0,.25,"sine",.25);tone(220,.03,.12,"triangle",.08)},
+      stop(){tone(150,0,.2,"sine",.22);tone(1320,.02,.12,"triangle",.07)},
+      win(){[659,659,659,0,659,659,659,0,659,784,523,587,659].forEach((f,i)=>{if(f)tone(f,i*.17,.22,"triangle",.09)});[1568,2093].forEach((f,i)=>tone(f,2.3+i*.1,.5,"sine",.04))}
+    };
+    function mkItem(o){const d=document.createElement("div");d.className="csIt"+(o.sym?" sym":"");d.innerHTML="<span>"+esc(o.t)+"</span>";if(!o.sym)d.style.fontSize=fitFont+"px";return d}
+
+    function render(){
+      const {t1,t2}=split(players), N=Math.max(1,t1.length);
+      const avail=Math.max(260,innerWidth-150-118-92-28-60);
+      const cw=Math.max(74,Math.min(176,Math.floor(avail/N)-6));
+      const longest=Math.max(4,...players.map(n=>n.length));
+      fitFont=Math.max(13,Math.min(30,Math.floor((cw-14)/(longest*.62))));
+      reelsBox.querySelectorAll(".csReel").forEach(r=>r.remove());
+      cols=[];
+      for(let i=0;i<N;i++){
+        const reel=document.createElement("div");reel.className="csReel";reel.style.width=cw+"px";
+        const strip=document.createElement("div");strip.className="csStrip";
+        idle.forEach(o=>strip.appendChild(mkItem(o)));
+        reel.appendChild(strip);reelsBox.insertBefore(reel,reelsBox.querySelector(".csGlow"));
+        cols.push({reel,strip,last:idle,fin:[{t:t1[i]},t2[i]?{t:t2[i]}:{t:"🎁",sym:1}],running:false,idx:0});
+      }
+      reelsBox.classList.remove("done");
+    }
+
+    /* Ampoules */
+    const BC=["#ff3b3b","#ffd166","#3ddc84","#fff4d6"];
+    function buildBulbs(){
+      machine.querySelectorAll(".csBulb").forEach(b=>b.remove());bulbs=[];
+      const w=machine.offsetWidth,h=machine.offsetHeight;if(!w||!h)return;
+      const off=20,step=34,pts=[];
+      const nx=Math.max(2,Math.round((w-2*off)/step)),ny=Math.max(2,Math.round((h-2*off)/step));
+      for(let i=0;i<nx;i++)pts.push([off+i*(w-2*off)/nx,off]);
+      for(let i=0;i<ny;i++)pts.push([w-off,off+i*(h-2*off)/ny]);
+      for(let i=0;i<nx;i++)pts.push([w-off-i*(w-2*off)/nx,h-off]);
+      for(let i=0;i<ny;i++)pts.push([off,h-off-i*(h-2*off)/ny]);
+      pts.forEach((p,i)=>{const b=document.createElement("i");b.className="csBulb";b.style.left=p[0]+"px";b.style.top=p[1]+"px";b.style.setProperty("--c",BC[i%4]);machine.appendChild(b);bulbs.push(b)});
+    }
+    function lights(){
+      tk++;const now=performance.now();
+      bulbs.forEach((b,i)=>{
+        let on;
+        if(now<flashUntil)on=(tk+(i%2))%2===0;
+        else if(mode==="spin")on=(i+tk)%2===0;
+        else on=(i+Math.floor(tk/2))%4<2;
+        b.classList.toggle("on",on);
+      });
+    }
+    function setLightSpeed(ms){clearInterval(timer);timer=setInterval(lights,ms)}
+    new ResizeObserver(()=>{if(page.style.display==="flex")buildBulbs()}).observe(machine);
+
+    /* Tirage */
+    function spin(){
+      if(!isReady||spinning||done)return;
+      spinning=true;goBtn.disabled=true;hint.textContent="🎰 Les rouleaux tournent…";
+      lever.classList.add("busy","pulled");lever.classList.remove("release");sfx.clunk();
+      setTimeout(()=>{lever.classList.add("release");lever.classList.remove("pulled")},600);
+      setTimeout(startReels,520);
+    }
+    function startReels(){
+      mode="spin";setLightSpeed(70);
+      const pool=players.map(t=>({t}));
+      const fill=()=>Math.random()<.28?{t:rnd(SYMS),sym:1}:{...rnd(pool)};
+      let finished=0;
+      cols.forEach((c,i)=>{
+        const L=26+i*11,dur=2.4+i*.9;
+        c.strip.style.transition="none";c.strip.style.transform="translateY(0)";c.strip.innerHTML="";
+        [...c.last,...Array.from({length:L},fill),...c.fin].forEach(o=>c.strip.appendChild(mkItem(o)));
+        c.idx=0;c.running=true;
+        void c.strip.offsetHeight;
+        c.reel.classList.add("spin");
+        c.strip.style.transition="transform "+dur+"s cubic-bezier(.18,.72,.25,1.03)";
+        c.strip.style.transform="translateY(-"+((L+2)*CH)+"px)";
+        setTimeout(()=>c.reel.classList.remove("spin"),Math.max(400,dur*1000-900));
+        setTimeout(()=>{
+          c.running=false;c.last=c.fin;
+          c.reel.classList.add("landed");sfx.stop();
+          setTimeout(()=>c.reel.classList.remove("landed"),600);
+          if(++finished===cols.length)finish();
+        },dur*1000+60);
+      });
+      requestAnimationFrame(watchTicks);
+    }
+    function watchTicks(){
+      let any=false,changed=false;
+      cols.forEach(c=>{
+        if(!c.running)return;any=true;
+        const y=new DOMMatrix(getComputedStyle(c.strip).transform).m42;
+        const k=Math.floor(-y/CH);if(k!==c.idx){c.idx=k;changed=true}
+      });
+      if(changed)sfx.tick();
+      if(any)requestAnimationFrame(watchTicks);
+    }
+    function finish(){
+      mode="idle";setLightSpeed(130);flashUntil=performance.now()+2600;
+      reelsBox.classList.add("done");sfx.win();confetti();setTimeout(confetti,900);
+      const {t1,t2}=split(players);S.teams={A:t1,B:t2};
+      spinning=false;done=true;
+      hint.textContent="🎉 Les équipes sont formées !";
+      goBtn.style.display="none";
+      setTimeout(()=>{ if(onDone) onDone(); },2800);
+    }
+
+    lever.addEventListener("click",spin);
+    lever.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();spin()}});
+    goBtn.onclick=spin;
+    addEventListener("resize",()=>{if(page.style.display==="flex"&&!spinning&&!done)render()});
+
+    return {
+      open(p,cb){
+        players=p.slice();onDone=cb;done=false;spinning=false;isReady=false;mode="idle";flashUntil=0;
+        S.teams={A:[],B:[]};
+        $("#csLab1").textContent=S.names.A;$("#csLab2").textContent=S.names.B;
+        hint.textContent="";goBtn.disabled=true;goBtn.style.display="";
+        lever.classList.add("busy");lever.classList.remove("pulled","release");
+        page.style.display="flex";render();
+        requestAnimationFrame(buildBulbs);setLightSpeed(130);
+      },
+      ready(){isReady=true;lever.classList.remove("busy");goBtn.disabled=false;hint.textContent="🎰 Tirez la poignée !"},
+      close(){page.style.display="none";clearInterval(timer);timer=null}
+    };
+  })();
+
   /* ---------- Déroulé ---------- */
   $("#btnStart").onclick = () => {
     S.names.A=$("#nameA").value||"Équipe A"; S.names.B=$("#nameB").value||"Équipe B";
     ctx().resume && ctx().resume(); startMusic();
-    $("#setup").style.display="none"; $("#launch").style.display="flex";
-    const box=$("#launchQR"); box.innerHTML="";
-    ["A","B"].forEach(t=>{
-      makeQR(box,t,200);
-      box.lastChild.insertAdjacentHTML("beforeend",'<div style="margin-top:8px;font-weight:700"><span class="dot" id="ldot'+t+'"></span><span id="lst'+t+'">en attente…</span></div>');
-    });
-    updateDots(); SFX.bell();
+    $("#setup").style.display="none"; $("#names").style.display="flex"; nChanged(); SFX.bell();
   };
-  $("#launchBack").onclick = () => { $("#launch").style.display="none"; $("#setup").style.display="block"; };
+  $("#namesBack").onclick = () => { $("#names").style.display="none"; $("#setup").style.display="block"; };
+  $("#namesOk").onclick = () => {
+    S.players=getPlayers(); const n=S.players.length;
+    $("#launchInfo").textContent="👥 "+n+" joueur"+(n>1?"s":"")+" prêt"+(n>1?"s":"")+" pour la mission";
+    $("#names").style.display="none"; $("#launch").style.display="flex"; SFX.bell();
+  };
+  $("#launchBack").onclick = () => { $("#launch").style.display="none"; $("#names").style.display="flex"; };
   $("#btnGo").onclick = () => {
     SFX.fanfare();
-    $("#launch").style.display="none"; $("#game").style.display="flex"; $("#miniQR").style.display="flex"; updateMiniQR();
+    $("#launch").style.display="none";
     $("#scNameA").textContent=S.names.A; $("#scNameB").textContent=S.names.B; updateScores();
     const file=$("#videoInput").files[0];
-    if(file){ playIntroVideo(file, startStory); } else startStory();
+    if(file){ playIntroVideo(file, startCasino); } else startCasino();
   };
   function playIntroVideo(file,cb){
     const L=$("#videoLayer"), v=$("#introVideo"); v.src=URL.createObjectURL(file); L.style.display="flex"; music.volume=Math.min(music.volume,.1);
     const end=()=>{L.style.display="none";v.pause();setVol();cb()}; v.onended=end; $("#skipVideo").onclick=end; v.play().catch(()=>{});
   }
+  function radioPanel(){
+    $("#stage").innerHTML=`<div class="panel center" style="font-size:30px;animation:popin .8s both">📡 Tour de contrôle aérien de ${CONFIG.lieu}<br><span style="font-size:20px;opacity:.8">Signal radio entrant…</span></div>`;
+  }
+  const lieu = l => l.replace("Fécamp",CONFIG.lieu);
+  /* 1. Introduction : la machine à sous forme les équipes (avant le lutin) */
+  function startCasino(){
+    S.phase="casino"; sendState();
+    $("#game").style.display="none"; $("#csResult").innerHTML=""; $("#csNext").style.display="none";
+    CASINO.open(S.players, afterDraw);
+    setTimeout(()=>CASINO.ready(),600);
+  }
+  function afterDraw(){
+    const t=S.teams;
+    $("#csResult").innerHTML=
+      '<div class="csCard A"><b></b><span></span></div><div class="csCard B"><b></b><span></span></div>';
+    ["A","B"].forEach(k=>{
+      const c=$("#csResult .csCard."+k);
+      c.querySelector("b").textContent=S.names[k]; c.querySelector("span").textContent=t[k].join(" · ");
+    });
+    $("#csNext").style.display="inline-block";
+  }
+  $("#csNext").onclick=()=>showQrPage();
+  /* 2. L'histoire commence (le lutin apparaît) */
   function startStory(){
     S.phase="story"; sendState(); setMood("wander","Ho ho… où suis-je ?! 🗺️",3500);
-    $("#stage").innerHTML=`<div class="panel center" style="font-size:30px;animation:popin .8s both">📡 Tour de contrôle aérien de ${CONFIG.lieu}<br><span style="font-size:20px;opacity:.8">Signal radio entrant…</span></div>`;
-    setTimeout(()=>runLines(CONFIG.histoire.map(l=>l.replace("Fécamp",CONFIG.lieu)), ()=>{ hideElf(); nextRound(); }),1200);
+    radioPanel();
+    const lines=[...CONFIG.histoire1,...CONFIG.histoireCasino,...CONFIG.histoire2].map(lieu);
+    setTimeout(()=>runLines(lines, ()=>{ hideElf(); nextRound(); }),1200);
   }
+  /* 3. Les joueurs se connectent à leur équipe */
+  function showQrPage(){
+    S.phase="qr"; sendState();
+    CASINO.close(); $("#casinoPage").style.display="none";
+    const box=$("#qrTeams"); box.innerHTML="";
+    ["A","B"].forEach(t=>{
+      const col=document.createElement("div"); col.className="qrcol";
+      makeQR(col,t,200);
+      const m=document.createElement("div"); m.className="members "+t; m.textContent=S.teams[t].join(" · "); col.append(m);
+      col.insertAdjacentHTML("beforeend",'<div style="margin-top:8px;font-weight:700"><span class="dot" id="ldot'+t+'"></span><span id="lst'+t+'">en attente…</span></div>');
+      box.append(col);
+    });
+    $("#qrPage").style.display="flex"; updateDots(); SFX.bell();
+  }
+  $("#btnMission").onclick = () => {
+    SFX.fanfare();
+    $("#qrPage").style.display="none"; $("#game").style.display="flex"; $("#miniQR").style.display="flex"; updateMiniQR();
+    updateScores(); startStory();
+  };
   function updateScores(){
     $("#scValA").textContent=S.scores.A; $("#scValB").textContent=S.scores.B;
     const done=S.idx+(S.phase==="reveal"?1:0);
@@ -964,13 +1281,14 @@ function initHost(){
   const FIELDS=["nameA","nameB","baseUrl","room","musicPath","vol"];
   function collect(){
     const o={}; FIELDS.forEach(f=>o[f]=$("#"+f).value); o.fx=$("#fx").checked;
-    o.order=S.cities.length?S.cities.map(c=>c.name):JSON.parse(store.get("noel26order","[]")); return o;
+    o.order=S.cities.length?S.cities.map(c=>c.name):JSON.parse(store.get("noel26order","[]")); o.players=getPlayers(); return o;
   }
   function saveAll(){ const o=collect(); store.set("noel26all",JSON.stringify(o)); store.set("noel26order",JSON.stringify(o.order)); }
   function applySettings(o){
     FIELDS.forEach(f=>{ if(o[f]!==undefined) $("#"+f).value=o[f]; });
     if(o.fx!==undefined) $("#fx").checked=o.fx;
     if(o.order){ store.set("noel26order",JSON.stringify(o.order)); applyOrder(o.order); }
+    if(o.players) setPlayers(o.players);
     setVol(); renderCityList(); drawSetupQR(); openPeer(); saveAll();
   }
   try{ const sv=JSON.parse(store.get("noel26all","null")); if(sv){ FIELDS.forEach(f=>{ if(sv[f]!==undefined && !(f==="baseUrl"&&!sv[f])) $("#"+f).value=sv[f]; }); if(sv.fx!==undefined)$("#fx").checked=sv.fx; setVol(); } }catch(e){}
@@ -978,7 +1296,7 @@ function initHost(){
   $("#btnExport").onclick=()=>{ const a=document.createElement("a"); a.href=URL.createObjectURL(new Blob([JSON.stringify(collect(),null,2)],{type:"application/json"})); a.download="noel2026-parametres.json"; a.click(); };
   $("#btnImport").onclick=()=>$("#importFile").click();
   $("#importFile").onchange=e=>{ const f=e.target.files[0]; if(!f)return; const r=new FileReader(); r.onload=()=>{ try{applySettings(JSON.parse(r.result))}catch(err){alert("Fichier de paramètres invalide")} }; r.readAsText(f); };
-  $("#btnReset").onclick=()=>{ if(confirm("Effacer tous les réglages enregistrés ?")){ ["noel26all","noel26order","noel26room","noel26nameA","noel26nameB","noel26music","noel26url"].forEach(k=>{try{localStorage.removeItem(k)}catch(e){}}); location.reload(); } };
+  $("#btnReset").onclick=()=>{ if(confirm("Effacer tous les réglages enregistrés ?")){ ["noel26all","noel26order","noel26room","noel26nameA","noel26nameB","noel26music","noel26url","noel26players"].forEach(k=>{try{localStorage.removeItem(k)}catch(e){}}); location.reload(); } };
 
   /* ---------- Initialisation ---------- */
   drawSetupQR(); openPeer(); renderCityList();
